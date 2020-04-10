@@ -6,18 +6,25 @@ import lombok.experimental.FieldDefaults;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PhoneNumber")
+@Table(name = "client")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class PhoneNumber {
+public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
 
-    @Column(name = "number")
-    String number;
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "phone")
+    private String phone;
+
+    @Column(name = "inn")
+    private String inn;
+
 }
