@@ -25,7 +25,7 @@ public class PhoneNumber {
     @Column(name = "currency")
     private String currency;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "client_id",referencedColumnName = "id")
     private Client clientId;
 
