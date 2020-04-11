@@ -32,8 +32,8 @@ public class SMSController {
         return  smsService.findById(id);
     }
 
-    @GetMapping("/id")
-    public void deleteById(Long id){
+    @DeleteMapping("/id")
+    public void deleteById(@RequestParam Long id){
         smsService.deleteSMSById(id);
     }
 

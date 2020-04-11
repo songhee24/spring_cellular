@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/phone") // localhost:8080/phone
+@RequestMapping("/client") // localhost:8080/phone
 public class ClientController {
     @Autowired
     private ClientService clientService;
@@ -24,5 +24,15 @@ public class ClientController {
     @PostMapping
     public Client create(@RequestBody Client client){
         return clientService.save(client);
+    }
+
+    @DeleteMapping("/id")
+    public void deleteById(@RequestParam Long id){
+        clientService.deleteById(id);
+    }
+
+    @GetMapping("/id")
+    public Client getById(@RequestParam Long id){
+        return clientService.getClientById(id);
     }
 }

@@ -9,4 +9,6 @@ public interface ClientService {
     Client getClientById(Long id);
 
     Client save(Client c);
+
+    void deleteById(Long id);
 }
