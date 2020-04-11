@@ -28,5 +28,4 @@ public class PhoneNumber {
     @ManyToOne
     @JoinColumn(name = "client_id",referencedColumnName = "id")
     private Client clientId;
-
 }
