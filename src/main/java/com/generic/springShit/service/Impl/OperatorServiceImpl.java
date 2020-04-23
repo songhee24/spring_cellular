@@ -1,7 +1,8 @@
-package com.generic.springShit.service;
+package com.generic.springShit.service.Impl;
 
 import com.generic.springShit.entity.Operator;
 import com.generic.springShit.repository.OperatorRepository;
+import com.generic.springShit.service.OperatorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class OperatorServiceImpl implements OperatorService{
+public class OperatorServiceImpl implements OperatorService {
     @Autowired
     private OperatorRepository operatorRepository;
 

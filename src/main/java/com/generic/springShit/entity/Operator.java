@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "OperatorController")
@@ -22,8 +23,8 @@ public class Operator {
     private String name;
 
     @Column(name = "op_get_money")
-    private Integer opGetMoney;
+    private BigDecimal opGetMoney;
 
     @Column(name = "money_in_phones")
-    private Integer moneyInPhones;
+    private BigDecimal moneyInPhones;
 }

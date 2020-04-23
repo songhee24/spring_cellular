@@ -19,11 +19,14 @@ public class PhoneNumber {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "request")
-    private String request;
+    @Column(name = "country_code")
+    private String countryCode;
 
-    @Column(name = "currency")
-    private String currency;
+    @Column(name = "number")
+    private String number;
+
+    @Column(name = "amount")
+    private Double amount;
 
     @ManyToOne
     @JoinColumn(name = "client_id",referencedColumnName = "id")

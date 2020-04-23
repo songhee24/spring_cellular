@@ -1,15 +1,12 @@
 package com.generic.springShit.controller;
 
-import com.generic.springShit.entity.Client;
 import com.generic.springShit.entity.Operator;
-import com.generic.springShit.entity.Rate;
 import com.generic.springShit.service.OperatorService;
-import com.generic.springShit.service.OperatorServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/operator") // localhost:8080/operator

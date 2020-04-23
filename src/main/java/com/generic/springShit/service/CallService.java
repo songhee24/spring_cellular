@@ -12,5 +12,7 @@ public interface CallService {
 
       Call save(Call call);
 
+      Call createCall(Call call);
+
       void deleteCallById(Long id);
 }

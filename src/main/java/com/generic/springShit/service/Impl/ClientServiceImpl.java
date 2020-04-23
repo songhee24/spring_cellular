@@ -1,7 +1,8 @@
-package com.generic.springShit.service;
+package com.generic.springShit.service.Impl;
 
 import com.generic.springShit.entity.Client;
 import com.generic.springShit.repository.ClientRepository;
+import com.generic.springShit.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,8 @@
-package com.generic.springShit.service;
+package com.generic.springShit.service.Impl;
 
 import com.generic.springShit.entity.SMS;
 import com.generic.springShit.repository.SMSRepository;
+import com.generic.springShit.service.SMSService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

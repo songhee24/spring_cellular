@@ -1,7 +1,8 @@
-package com.generic.springShit.service;
+package com.generic.springShit.service.Impl;
 
 import com.generic.springShit.entity.PhoneNumber;
 import com.generic.springShit.repository.PhoneNumberRepository;
+import com.generic.springShit.service.PhoneNumberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

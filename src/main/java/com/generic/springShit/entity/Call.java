@@ -34,7 +34,4 @@ public class Call {
 
     @Column(name = "minutes")
     private Integer minutes;
-
-
-
 }
