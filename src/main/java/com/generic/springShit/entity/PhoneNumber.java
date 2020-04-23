@@ -19,6 +19,10 @@ public class PhoneNumber {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "rate_id",referencedColumnName = "id")
+    private Rate rate;
+
     @Column(name = "country_code")
     private String countryCode;
 

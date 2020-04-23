@@ -21,10 +21,6 @@ public class Call {
     private Long id;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "rate_id",referencedColumnName = "id")
-    private Rate rate;
-
-    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "accepting_call_id",referencedColumnName = "id")
     private PhoneNumber acceptingCallNumber;
 

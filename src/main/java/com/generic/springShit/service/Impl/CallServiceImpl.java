@@ -39,11 +39,12 @@ public class CallServiceImpl implements CallService {
     @Override
     public Call createCall(Call call) {
         Call call1 = callRepository.findById(call.getId()).orElse(null);
-        if (call1 != null){
-            Operator operator = operatorService.getOperatorById(call.getRate().getOperatorId().getId());
+        if (call1 == null){
+            Operator operator = operatorService.getOperatorById(call.
+                    getAcceptingCallNumber().getRate().getOperatorId().getId());
             PhoneNumber phoneNumber = phoneNumberService.getPhoneNumberById(call.getAcceptingCallNumber().getId());
-            Double sum = call.getRate().getForCall() *
-                    call.getMinutes();
+            Double sum = call.getAcceptingCallNumber().getRate()
+                    .getForCall() * call.getMinutes();
             operator.setOpGetMoney(operator.getOpGetMoney().
                     add(BigDecimal.valueOf(sum)));
             operator.setMoneyInPhones(operator.getOpGetMoney().subtract(BigDecimal.valueOf(sum)));

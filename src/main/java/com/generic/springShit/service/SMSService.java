@@ -12,5 +12,7 @@ public interface SMSService {
 
     SMS save(SMS sms);
 
+    SMS createSMS(SMS sms);
+
     void  deleteSMSById(Long id);
 }
