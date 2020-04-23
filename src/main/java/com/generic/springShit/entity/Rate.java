@@ -13,6 +13,7 @@ import javax.persistence.*;
 @Setter
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@ToString
 public class Rate {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

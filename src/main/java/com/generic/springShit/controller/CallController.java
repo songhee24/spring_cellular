@@ -35,6 +35,11 @@ public class CallController {
              callService.deleteCallById(id);
        }
 
+       @PostMapping("/createCall")
+       public Call createCall(@RequestBody Call call){
+           return callService.createCall(call);
+       }
+
 
 
 }

@@ -1,13 +1,11 @@
 package com.generic.springShit.service.Impl;
 
-import com.generic.springShit.entity.Call;
-import com.generic.springShit.entity.Operator;
-import com.generic.springShit.entity.PhoneNumber;
-import com.generic.springShit.entity.SMS;
+import com.generic.springShit.entity.*;
 import com.generic.springShit.repository.CallRepository;
 import com.generic.springShit.service.CallService;
 import com.generic.springShit.service.OperatorService;
 import com.generic.springShit.service.PhoneNumberService;
+import com.generic.springShit.service.RateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,11 +17,13 @@ import java.util.Optional;
 @Service
 public class CallServiceImpl implements CallService {
     @Autowired
-    CallRepository callRepository;
+    private CallRepository callRepository;
     @Autowired
-    OperatorService operatorService;
+    private OperatorService operatorService;
     @Autowired
-    PhoneNumberService phoneNumberService;
+    private PhoneNumberService phoneNumberService;
+    @Autowired
+    private RateService rateService;
 
     @Override
     public List<Call> getAllCalls() {
@@ -38,12 +38,15 @@ public class CallServiceImpl implements CallService {
 
     @Override
     public Call createCall(Call call) {
-        Call call1 = callRepository.findById(call.getId()).orElse(null);
-        if (call1 == null){
-            Operator operator = operatorService.getOperatorById(call.
-                    getAcceptingCallNumber().getRate().getOperatorId().getId());
-            PhoneNumber phoneNumber = phoneNumberService.getPhoneNumberById(call.getAcceptingCallNumber().getId());
-            Double sum = call.getAcceptingCallNumber().getRate()
+        if (call.getId() == null){
+            PhoneNumber phoneNumber = phoneNumberService.getPhoneNumberById(call.
+                    getAcceptingCallNumber().getId());
+            PhoneNumber phoneNumber2 = phoneNumberService.getPhoneNumberById(call.
+                    getCallingPhoneNumber().getId());
+            Rate rate = rateService.getRateById(phoneNumber.getRate().getId());
+            Operator operator = operatorService.getOperatorById(phoneNumber
+                    .getRate().getOperatorId().getId());
+            Double sum = phoneNumber.getRate()
                     .getForCall() * call.getMinutes();
             operator.setOpGetMoney(operator.getOpGetMoney().
                     add(BigDecimal.valueOf(sum)));
@@ -51,6 +54,8 @@ public class CallServiceImpl implements CallService {
             operatorService.save(operator);
             phoneNumber.setAmount(phoneNumber.getAmount() - sum);
             phoneNumberService.save(phoneNumber);
+            call.setAcceptingCallNumber(phoneNumber);
+            call.setCallingPhoneNumber(phoneNumber2);
             return callRepository.save(call);
         }
         return call;
